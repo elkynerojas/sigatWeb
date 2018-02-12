@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="../img/logo_mosca.png" />
+        <title>SIGAT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/bootstrap.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/sweetalert.css">
+        <script type="text/javascript" src="../js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../js/loginJS.js"></script>
+        <script type="text/javascript" src="../js/tecnicoJS.js"></script>
+        <script type="text/javascript" src="../js/sweetalert.min.js"></script>
+        <script>
+            $( document ).ready(sesion(),tecnicoBuscar());
+            
+        </script>
+    </head>
+    <body>
+        <!-- ENCABEZADO DE LA PAGINA -->
+        <div class="page-header col-md-12" id="encabezado">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img src="../img/logoica.png" class="img-header logo_ica">
+            </div>
+            <div class="col-md-6 h1-header">
+                <h1>SIGAT</h1>
+                <small>Sistema de Información para la Generaci&oacute;n de Alertas Tempranas</small>
+                <br>
+                <small>En el Plan Nacional de la Mosca de la Fruta</small>
+            </div>
+            <div class="col-md-2">
+                <img src="../img/logo_iser.png" class="img-header">
+            </div>
+        </div>
+        <!--MENU-->
+        <div  class="col-md-12">
+            <nav class="col-md-12 navbar navbar-default" id="barra-nav">
+             <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="#"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav" >
+                        <!--opcion Inicio--> 
+                        <li id="btn-prim-nivel"><a href="TecnicoHome.html">INICIO <span class="sr-only">(current)</span></a></li>
+                        <!--opcion desplegable preinscipcion-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PREINSCRIPCION <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li class="btn-segundo-nivel"><a href="../Preinscripcion/Productor/Gestion-Productor.html">Productor</a></li>
+                                <li><a href="../Preinscripcion/Predio/Gestion-Predio.html">Predio/Lote</a></li>
+                                <li><a href="../Preinscripcion/Trampa/Gestion-Trampa.html">Trampa</a></li>
+                            </ul>
+                        </li>
+                        <!--opcion desplegable Trabajo de Campo-->
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TRABAJO DE CAMPO <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Trabajo/Trampeo/Gestion-Trampeo.html">Trampeo</a></li>
+                                <li><a href="../Trabajo/Captura/Gestion-Captura.html">Captura</a></li>
+                                <li><a href="../Trabajo/Inspeccion/Gestion-Inspeccion.html">Inspección</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="../Alertas/Gestion-Alertas.html">ALERTAS</a></li>
+                        <li><a href="Tecnico-Contacto.html">CONTACTO</a></li>
+                        <li><a href="Tecnico-Acerca-De.html">ACERCA DE</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" id="usuario" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <script>
+                                    javascript:document.write(sessionStorage.tec_nombre);
+                                </script>
+                                <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="Tecnico-Perfil.html">Ver Perfil</a></li>
+                                <li><a href="Tecnico-Actualizar.html">Actualizar Datos</a></li>
+                                <li><a href="Tecnico-Cambiar-Clave.html">Cambiar Contraseña</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="javascript:logout();">Cerrar Sesión</a></li>
+                            </ul>
+                       </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        </div>
+        <!--CONTAINER-->
+        <div class="col-md-12" >
+            <div id="container">
+                
+                <div class=" panel panel-primary">
+                    <div class="panel-heading">
+                        <i class="glyphicon glyphicon-user "></i> 
+                        DATOS DE USUARIO
+                    </div>
+                    <div class="panel-body">
+                        <form name="frm-Tecnico-Actualizar" id="frm-Tecnico-Actualizar" action="javascript:tecnicoActualizar()">
+                            <div class="" style="text-align: center">
+                                <div class="col-sm-12">
+                                    <button type="button" class="btn btn-outline btn-danger" title="REGRESAR" onclick="history.go(-1); return false;">
+                                        <span class="glyphicon glyphicon-remove arrow"></span> CANCELAR
+                                    </button>
+                                    <button type="submit" class="btn btn-success"  title="GUARDAR REGISTRO">
+                                       <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ACTUALIZAR
+                                    </button>         
+                                </div>                          
+                            </div>
+                            <div class="row col-md-12">
+                                &nbsp;
+                            </div>
+                            <div class="formulario">
+                                <div class="row  form-group">
+                                    <label for="per_cc" class="col-sm-1 control-label">No. Documento</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="per_cc" id="per_cc" readonly="" value="" size="20" maxlength="20" class="form-control input-sm" />
+                                        <input type="hidden" name="per_cc_aux" id="per_cc_aux">
+                                    </div>
+                                    <label for="per_nombre" class="col-sm-1 control-label">Nombre</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="per_nombre" id="per_nombre" value="" size="50" maxlength="100" class="form-control input-sm"/>
+                                    </div>
+                                    <label for="per_apellido" class="col-sm-1 control-label">Apellido</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="per_apellido" id="per_apellido" value="" size="50" maxlength="100" class="form-control input-sm"/>
+                                    </div>
+                                    <label for="gen_id" class="col-sm-1 control-label">Genero</label>
+                                    <div class="col-sm-2"> 
+                                        <select name="gen_id" id="gen_id"  class="form-control input-sm">
+                                            
+                                        </select>
+                                    </div>
+                                </div>                        
+
+                                <div class="row  form-group">   
+                                    
+                                    <label for="per_telefono" class="col-sm-1 control-label">Tel&eacute;fono</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="per_telefono" id="per_telefono" value="" size="50" maxlength="50" class="form-control input-sm"/>
+                                    </div>
+                                    <label for="per_direccion" class="col-sm-1 control-label">Direcci&oacute;n</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="per_direccion" id="per_direccion" value="" size="50" maxlength="100" class="form-control input-sm" />                        
+                                    </div>
+                                    <label for="per_correo" class="col-sm-1 control-label">Correo E.</label>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="per_correo" id="per_correo" value="" size="50" maxlength="100" class="form-control input-sm"/>            
+                                    </div>
+                                </div>
+                                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>    
+        </div>
+        <div class=" col-md-12 footer">
+            Instituto Colombiano Agropecuario<br>
+            Instituto Superior de Educaci&oacute;n Rural -ISER<br>
+            2017
+        </div>
+    </body>
+</html>

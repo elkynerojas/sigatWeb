@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--
+GESTION PRODUCTOR
+-->
+<html>
+    <!--HEAD-->
+    <head>
+         <link rel="icon" type="image/png" href="../../img/logo_mosca.png" />
+        <title>SIGAT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/sweetalert.css">
+        <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="../../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../js/loginJS.js"></script>
+        <script type="text/javascript" src="../../js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="../../js/capJS.js"></script>
+        <!--FUNCIONES JAVASCRIPT-->
+        <script>
+            $( document ).ready(sesion());
+        </script>
+    </head>
+    
+    <body>
+        <!-- Gestion de Trampeo-->
+        
+           
+           <!--HEADER-->
+        <div class="page-header col-md-12" id="encabezado">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img src="../../img/logoica.png" class="img-header logo_ica">
+            </div>
+            <div class="col-md-6 h1-header">
+                <h1>SIGAT</h1>
+                <small>Sistema de Información para la Generaci&oacute;n de Alertas Tempranas</small>
+                <br>
+                <small>En el Plan Nacional de la Mosca de la Fruta</small>
+            </div>
+            <div class="col-md-2">
+                <img src="../../img/logo_iser.png" class="img-header">
+            </div>
+        </div>
+           <!--MENU-->
+        <div  class="">
+            <nav class="col-md-12 navbar navbar-default" id="barra-nav">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav" >
+                            <!--opcion Inicio--> 
+                            <li id="btn-prim-nivel"><a href="../../tecnicoREST/TecnicoHome.html">INICIO <span class="sr-only">(current)</span></a></li>
+                            <!--opcion desplegable preinscipcion-->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PREINSCRIPCION <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../../Preinscripcion/Productor/Gestion-Productor.html">Productor</a></li>
+                                    <li><a href="../../Preinscripcion/Predio/Gestion-Predio.html">Predio/Lote</a></li>
+                                    <li><a href="../../Preinscripcion/Trampa/Gestion-Trampa.html">Trampa</a></li>
+                                </ul>
+                            </li>
+                            <!--opcion desplegable Trabajo de Campo-->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TRABAJO DE CAMPO <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Trampeo/Gestion-Trampeo.html">Trampeo</a></li>
+                                    <li><a href="../Captura/Gestion-Captura.html">Captura</a></li>
+                                    <li><a href="../Inspeccion/Gestion-Inspeccion.html">Inspecci&oacute;n</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../../Alertas/Gestion-Alertas.html">ALERTAS</a></li>
+                            <li><a href="../../tecnicoREST/Tecnico-Contacto.html">CONTACTO</a></li>
+                            <li><a href="../../tecnicoREST/Tecnico-Acerca-De.html">ACERCA DE</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <script>
+                                      javascript:document.write(sessionStorage.tec_nombre);
+                                    </script>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../../tecnicoREST/Tecnico-Perfil.html">Ver Perfil</a></li>
+                                    <li><a href="../../tecnicoREST/Tecnico-Actualizar.html">Actualizar Datos</a></li>
+                                    <li><a href="../../tecnicoREST/Tecnico-Cambiar-Clave.html">Cambiar Contraseña</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="javascript:logout();">Cerrar Sesión</a></li>
+                                </ul>
+                           </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+            <!-- Container-->
+        <div id="container" class="col-md-12">
+            <!--Titulo-->
+            <div class="col-md-12">
+                <h2>REGISTRO DE CAPTURAS</h2>
+            </div>
+            <!-- Navegacion-->
+            <div class="col-md-3">
+                <div class="btn-group" role="group" aria-label="...">
+                    <!--<a href="javascript:volver()">
+                        <button type="button" class="btn btn-default boton-verde " title="Regresar">
+                           <span class="glyphicon glyphicon-backward" aria-hidden="true"></span> 
+                        </button>
+                    </a>-->
+                    <a href="Frm-Registro-Captura.html">
+                        <button type="button" class="btn btn-default boton-verde" title="Nuevo Productor">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+                      </button>
+                    </a>
+                    <!--<a href="javascript:productorId('Historial-Productor.html')">
+                        <button type="button" class="btn btn-default boton-verde" title="Ver Historial">
+                            <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> 
+                        </button>
+                    </a>
+                    <a href="javascript:productorId('Actualizar-Productor.html')">
+                        <button type="button" class="btn btn-default boton-verde" title="Editar">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> 
+                        </button>
+                    </a>-->
+                </div>
+            </div>
+            <!--FILTRADO-->
+            <form name="filtrado-ubi" id="filtrado-ubi" action="javascript:capListar(document.getElementById('filtro').value)">
+                <div class="col-md-6 ">
+                    <input type="text" name="filtro" id="filtro" class="form-control" placeholder="INGRESE UN VALOR PARA FILTRAR">
+                </div>
+                <button id="botonBuscar" type="submit"  class="btn btn-primary col-md-2 boton">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>BUSCAR
+                </button>
+            </form>
+            <!--Tabla de Resultados-->
+            <div class="col-md-12" id="resultados" >
+                <table border="1" id="tablaResultados">
+                    <thead class="pfila">
+                        <tr>
+                          <th>#</th>
+                          <th>Código Vigilancia</th>
+                          <th>Región</th>
+                          <th>Dpto</th>
+                          <th>Municipio</th>
+                          <th>Registro de la Ruta</th>
+                          <th>Código Ruta</th>
+                          <th>Tipo de Trampa</th>
+                          <th>Número de Trampa</th>
+                          <th>Código Especie</th>
+                          <th>Fecha Captura</th>
+                          <th>Nombre Colector</th>
+                          <th>Machos</th>
+                          <th>Hembras</th>
+                          <th>Estado Trampa</th>
+                          <th>Fenología</th>
+                          <th>Fecha Reporte Diagnóstico</th>
+                          <th>Código Muestra</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+        <div class=" col-md-12 footer">
+            Instituto Colombiano Agropecuario<br>
+            Instituto Superior de Educaci&oacute;n Rural -ISER<br>
+            2017
+        </div>
+    </body>
+</html>

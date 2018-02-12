@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+         <link rel="icon" type="image/png" href="../../img/logo_mosca.png" />
+        <title>SIGAT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../../css/bootstrap.css">
+        <link rel="stylesheet" href="../../css/style.css">
+        <link rel="stylesheet" href="../../css/sweetalert.css">
+        <script type="text/javascript" src="../../js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="../../js/bootstrap.js"></script>
+        <script type="text/javascript" src="../../js/loginJS.js"></script>
+        <script type="text/javascript" src="../../js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="../../js/rutaJS.js"></script>
+        <script type="text/javascript" src="../../js/predioJS.js"></script>
+        <script type="text/javascript" src="../../js/inspeccionJS.js"></script>
+        <script>
+            $( document ).ready(sesion(),rutaListar()); 
+        </script>
+    </head>
+    <body>
+        <!--HEADER-->
+        <div class="page-header col-md-12" id="encabezado">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img src="../../img/logoica.png" class="img-header logo_ica">
+            </div>
+            <div class="col-md-6 h1-header">
+                <h1>SIGAT</h1>
+                <small>Sistema de Información para la Generaci&oacute;n de Alertas Tempranas</small>
+                <br>
+                <small>En el Plan Nacional de la Mosca de la Fruta</small>
+            </div>
+            <div class="col-md-2">
+                <img src="../../img/logo_iser.png" class="img-header">
+            </div>
+        </div>
+        <!--MENU-->
+        <div  id="menuTecnico">
+            <nav class="col-md-12 navbar navbar-default" id="barra-nav">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                      </button>
+                      <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav" >
+                            <!--opcion Inicio--> 
+                            <li id="btn-prim-nivel"><a href="../../tecnicoREST/TecnicoHome.html">INICIO <span class="sr-only">(current)</span></a></li>
+                            <!--opcion desplegable preinscipcion-->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">PREINSCRIPCION <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../../Preinscripcion/Productor/Gestion-Productor.html">Productor</a></li>
+                                    <li><a href="../../Preinscripcion/Predio/Gestion-Predio.html">Predio/Lote</a></li>
+                                    <li><a href="../../Preinscripcion/Trampa/Gestion-Trampa.html">Trampa</a></li>
+                                </ul>
+                            </li>
+                            <!--opcion desplegable Trabajo de Campo-->
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TRABAJO DE CAMPO <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../Trampeo/Gestion-Trampeo.html">Trampeo</a></li>
+                                    <li><a href="../Captura/Gestion-Captura.html">Captura</a></li>
+                                    <li><a href="../Inspeccion/Gestion-Inspeccion.html">Inspecci&oacute;n</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="../../Alertas/Gestion-Alertas.html">ALERTAS</a></li>
+                            <li><a href="../../tecnicoREST/Tecnico-Contacto.html">CONTACTO</a></li>
+                            <li><a href="../../tecnicoREST/Tecnico-Acerca-De.html">ACERCA DE</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <script>
+                                      javascript:document.write(sessionStorage.tec_nombre);
+                                    </script>
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="../../tecnicoREST/Tecnico-Perfil.html">Ver Perfil</a></li>
+                                    <li><a href="../../tecnicoREST/Tecnico-Actualizar.html">Actualizar Datos</a></li>
+                                    <li><a href="../../tecnicoREST/Tecnico-Cambiar-Clave.html">Cambiar Contraseña</a></li>
+                                    <li role="separator" class="divider"></li>
+                                    <li><a href="javascript:logout();">Cerrar Sesión</a></li>
+                                </ul>
+                           </li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </div><!-- /.container-fluid -->
+            </nav>
+        </div>
+        <!--container-->
+        <div id="container" class="col-md-12">
+            <!--formulario-->
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="text-align: center">
+                    <i class="glyphicon glyphicon-user "></i> 
+                    <i class="glyphicon glyphicon-plus"></i>
+                    REGISTRO DE INSPECCION
+                </div> 
+                <div class="panel-body">
+                    <form name="form-ins-captura" id="form-ins-captura" action="javascript:inspeccionInsertar()">
+                        <div class="" style="text-align: center">
+                            <div class="col-sm-12">
+                                <button type="button" class="btn btn-outline btn-danger" title="REGRESAR" onclick="history.go(-1); return false;">
+                                    <span class="glyphicon glyphicon-remove arrow"></span> CANCELAR
+                                </button>
+                                <button type="submit" class="btn btn-success"  title="GUARDAR REGISTRO">
+                                   <span class="glyphicon glyphicon-ok" aria-hidden="true"></span> REGISTRAR
+                                </button>         
+                            </div>                          
+                        </div>
+                        <div class="row col-md-12">
+                            &nbsp;
+                        </div>
+                        <div class="formulario">
+                            <div class="row  form-group">
+                                <label for="rut_id" class="col-sm-1 control-label" >Ruta</label>
+                                <div class="col-sm-2">
+                                    <select name="rut_id" id="rut_id"  class="form-control input-sm" onchange="predioListarxRuta(document.getElementById('rut_id').value)"></select>
+                                </div>
+                                <label for="pre_id" class="col-sm-1 control-label" >Predio</label>
+                                <div class="col-sm-2">
+                                    <select name="pre_id" id="pre_id"  class="form-control input-sm" onchange="GetProductor(document.getElementById('pre_id').value)">
+                                        
+                                    </select>
+                                </div>
+                                <label for="per_cc" class="col-sm-1 control-label">Productor</label>
+                                <div class="col-sm-2">
+                                    <select name="per_cc" id="per_cc"  class="form-control input-sm"></select>
+                                </div>  
+                            </div>                             
+                            <div class="row  form-group">
+                                 <label for="ins_estado" class="col-sm-1 control-label">Resultado</label>
+                                <div class="col-sm-2">
+                                    <select name="ins_estado" id="ins_estado"  class="form-control input-sm">
+                                        <option value="null"></option>
+                                        <option value="true">SATISFACTORIO</option>
+                                        <option value="false">INSATISFACTORIO</option>
+                                    </select>
+                                </div>
+                                <label for="ins_fecha" class="col-sm-1 control-label">Fecha</label>
+                                <div class="col-sm-2">
+                                    <input type="date"  name="ins_fecha" id="ins_fecha" class="form-control input-sm">
+                                </div>
+                                <label for="ins_obs" class="col-sm-1 control-label">Observación</label>
+                                <div class="col-sm-2">
+                                    <textarea type="text" name="ins_obs" id="ins_obs" class="form-control input-sm"></textarea>
+                                </div>
+                            </div>      
+                        </div>
+                    </form>
+                </div>    
+            </div>         
+        </div>
+        <div class=" col-md-12 footer">
+            Instituto Colombiano Agropecuario<br>
+            Instituto Superior de Educaci&oacute;n Rural -ISER<br>
+            2017
+        </div>
+    </body>
+</html>

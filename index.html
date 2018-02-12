@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!--PAGINA DI INICIO. LOGGIN DE USUARIO-->
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="img/logo_mosca.png" />
+        <title>SIGAT</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/sweetalert.css">
+        <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="js/loginJS.js"></script>
+        <script type="text/javascript" src="js/sweetalert.min.js"></script>
+        
+    </head>
+    <body>
+        <!--ENCABEZADO-->
+        <div class="page-header col-md-12" id="encabezado">
+            <div class="col-md-1"></div>
+            <div class="col-md-2">
+                <img src="img/logoica.png" class="img-header logo_ica">
+            </div>
+            <div class="col-md-6 h1-header">
+                <img src="img/logo_sigat.png" class="logo_sigat">
+            </div>
+            <div class="col-md-2">
+                <img src="img/logo_iser.png" class="img-header">
+            </div>
+        </div>
+        <!--CONTAINER FORMULARIO DE LOGGIN-->
+            
+        <div class="col-md-12" id="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading" style="text-align: center">
+                    <i class="glyphicon glyphicon-user "></i> 
+                    <i class="glyphicon glyphicon-lock"></i>
+                    INICIO DE SESI&Oacute;N
+                </div> 
+                <div class="panel-body">
+                    <div class="row col-md-12">
+                        &nbsp;
+                    </div>
+                    <div class="col-md-3"></div>
+                    <form class="form-horizontal col-md-6" action="javascript:ValidarLogin()">
+                        <div class="formulario">
+                            <div class="form-group">
+                                <label for="usu_usuario" class="col-sm-2 control-label">USUARIO</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="usu_usuario" id="usu_usuario" placeholder="Usuario">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <label for="usu_contrasena" class="col-sm-2 control-label">CONTRASEÑA</label>
+                                <div class="col-sm-10">
+                                    <input type="password" class="form-control" name="usu_contrasena" id="usu_contrasena" placeholder="Contraseña">
+                                </div>
+                            </div>
+                            <br>
+                            <div class="form-group">
+                                <div class="col-sm-offset-5 col-sm-8">
+                                    <button type="submit" name="login"  class="btn btn-success">INGRESAR</button>   
+                                </div>
+                            </div>
+
+                            <a class="col-sm-offset-5" href="#" >Olvid&eacute; mi Contraseña</a>
+                        </div>
+                    </form>
+                </div> 
+            </div>
+        </div>
+        <div class=" col-md-12 footer">
+            Instituto Colombiano Agropecuario<br>
+            Instituto Superior de Educaci&oacute;n Rural -ISER<br>
+            2017
+        </div>
+        
+    </body>
+</html>
+
